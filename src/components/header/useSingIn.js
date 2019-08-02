@@ -5,7 +5,8 @@ const useSingIn = () => {
 
    function changeToogle(e) {
        e.preventDefault()
-       setSingInOpen(!singInOpen);
+       setSingInOpen(!singInOpen)
+       singInOpen ? document.body.style.overflow = 'visible' :  document.body.style.overflow = 'hidden'
    }
 
    return {
