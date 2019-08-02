@@ -1,0 +1,291 @@
+.header {
+    .logo {
+        align-items: center;
+        background: $white;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        height: 34px;
+        left:0;
+        padding: 8px 15px;
+        position: absolute;
+        top: 0;
+        width: calc(100% - 30px);
+        z-index: 32;
+        @include size(tablet--pro) {
+            display: none;
+        }
+        .logo__content {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 90%;
+            svg {
+                display: inline-flex;
+                margin-top: 5px;
+                width: 45px;
+            }
+            .logo__name {
+                @include font($black, 1em, 600);
+                border-left: 2px solid $silver;
+                display: inline-flex;
+                flex-direction: column;
+                line-height: 90%;
+                margin-left: 8px;
+                padding-left: 12px;
+                
+                .name__salutation {
+                    @include font($black, .75em, 500);
+                    @include size(tablet--pro) {
+                        display: none;
+                    }
+                }
+            }
+        }
+        
+        .logout {
+            align-items: center;
+            //border-left: 2px solid $silver;
+            margin-top: 5px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            padding-left: 8px;
+            svg {
+                fill: $black;
+                height: 12px;
+                width: 12px;
+            }
+            p {
+                @include font($black, .5em, 500);
+                text-transform: uppercase;
+                margin-bottom: -4px;
+            }
+        }
+    }
+
+    &__nav {
+        bottom: 0;
+        background: $white;
+        position: fixed;
+        width: 100%;
+        z-index: 30;
+        
+        @include size(tablet--pro) {
+            background: $black;
+            left: 0;
+            top: 0;
+            width: 250px;
+            min-height:100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            transition: all .3s ease-in-out;
+        }
+        @include size(desktop) {
+            width: 300px;
+        }
+        .nav__logo {
+            display: none;
+            @include size(tablet--pro) {
+                display: block;
+                padding: 15px 30px;
+                height: 10px;
+                svg {
+                    width: 60px;
+                    height: 60px;
+                    fill: $white;
+                }
+            }
+        }
+        .menu {
+            align-items: center;
+            border-top: 1px solid $silver;
+            //box-shadow: 0px -7px 7px -5px rgba($gray, .1);
+            border-top: 3px solid $silver;
+            display: flex;
+            height: 50px;
+            padding-bottom: 20px;
+            @include size(tablet--pro) {
+                border: 0;
+                flex-direction: column ;
+                height: auto;
+                padding: 30px;
+            }
+            &__item {
+                display: inline-flex;
+                justify-content: center;
+                width: 25%;
+                @include size(tablet--pro) {
+                    flex-flow: column;
+                    margin: 5px 0;
+                    width: 100%;
+                    &:hover {
+                        .menu__submenu {
+                            height: auto;
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                }  
+                
+            }
+            &__item--user {
+                display: none;
+                @include size(tablet--pro) {
+                    display: block;
+                }
+
+                .user {
+                    @include font($black, 1em, 500);
+                    background: $white;
+                    height: 50px;
+                    position: absolute;
+                    top: 0;
+                    width: 100%;
+                    z-index: 31;
+                    @include size(tablet--pro) {
+                        @include font($white, 1em, 300);
+                        background: transparent;
+                        height: 90px;
+                        left: 0px;
+                        position: relative;
+                        top: 10px;
+                        width: 300px;
+                        
+                    }
+                    &__categorie, &__matricula {
+                        display: none;
+                        @include size(tablet--pro) {
+                            @include font($white, .9em, 300);
+                            display: block;
+            
+                        }
+                    }
+                    &__matricula {
+                        @include font($white, 1.1em, 300);
+                        letter-spacing: 2px;
+                    }
+            
+                    &__name {
+                        padding: 18px 20px 20px 70px;
+                        @include font($black, .85em, 500);
+                        @include size(tablet--pro) {
+                            @include font($yelow, 1.2em, 500);
+                            padding: 6px 0 8px;
+                        }
+                    }
+            
+                    
+                }  
+            }
+            &__item--logout {
+                display: none;
+                @include size(tablet--pro) {
+                    //border-top: 1px solid $gray;
+                    display: block;
+                    padding: 17px 0px 15px 30px;
+                    position: absolute;
+                    bottom: 0px;
+                    left: 0px;
+                    width: 50px;
+                    &:hover {
+                        //background: $gray;
+                    }
+                    @media screen and (max-height: 760px) {
+                        position: relative;
+                        width: 100%;
+                        text-align: left;
+                        padding: 0;
+                    }
+                    .menu__logout {
+                        @include font($white, 1em, 500);
+                        align-items: center;
+                        display: flex;
+                        svg {
+                            fill: $yelow;
+                            height: 20px;
+                            margin-right: 10px;
+                            width: 20px;
+                            //transform: rotate(180deg);
+                        }
+                    }
+                }
+            }
+            &__link {
+                @include size(tablet--pro) {
+                    @include font($white, 1.25em, 500);
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                }
+                .link__icon {
+                    cursor: pointer;
+                    display: block;
+                    height: 20px;
+                    width: 50px;
+                    text-align: center;
+                    @include size(tablet--pro) {
+                        display: inline-block;
+                        margin-right: 10px;
+                        width: 20px;
+                    }
+                    svg {
+                        width: 20px;
+                        height: 20px;
+                        @include size(tablet--pro) {
+                            fill: rgba($yelow, .8);
+                            width: 18px;
+                            height: 18px;
+                            
+                        }
+                    }
+                    
+                    .icon__text {
+                        @include font($black, .5em, 500);
+                        padding-top: 0px;
+                        text-transform: uppercase;
+                        @include size(tablet--pro) {
+                            display: none;
+                        }
+                    }
+                }
+                .link__text {
+                    display: none;
+                    @include size(tablet--pro) {
+                        color: $white;
+                        display: inline-block;
+                        padding: 5px 0;
+                    }
+                }   
+            }
+            &__submenu {
+                display: none;
+                @include size(tablet--pro) {
+                    display: block;
+                    //height: 0;
+                    //opacity: 0;
+                    //visibility: hidden;
+                    transition: all .2s ease-in-out;
+                    .submenu__link,
+                    .submenu__link--button {
+                        background: transparent;
+                        border: 0;
+                        cursor: pointer;
+                        @include font(rgba($white, .8), .95em, 400);
+                        display: block;
+                        height: auto;
+                        outline: 0;
+                        padding: 3px 0 3px 30px;
+                        transition: color .2s ease;
+                        &:hover {
+                            color: $yelow;
+                        }
+                        svg {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

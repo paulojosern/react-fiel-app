@@ -1,0 +1,1381 @@
+body {
+    @include font($black, 14px, 300);
+    background: $silver;
+    letter-spacing: .3px;
+    line-height: 110%;
+}
+.overflow {
+  overflow-y: hidden;
+}
+.hidden__desktop {
+  @include size(tablet) {
+    display: none !important;
+  }
+}
+a {
+  color: $black;
+  text-decoration: none;
+  &:hover {
+    color: inherit;
+    //text-decoration: underline;
+    text-decoration: none;
+    
+  }
+}
+b, strong {
+  font-weight: 600;
+}
+.link {
+  text-decoration: underline;
+}
+.center {
+  text-align: center;
+  justify-content: center;
+  &--desktop {
+    text-align: left;
+    @include size(tablet) {
+      text-align: center;
+      justify-content: center;
+    }
+  }
+  &--mobile {
+    text-align: center;
+    @include size(tablet) {
+      text-align: left;
+      justify-content: flex-start;
+    }
+  }
+  &--all {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.left {
+  text-align: left;
+  justify-content: flex-start;
+}
+.float__left {
+  float: left;
+}
+.float__right {
+  float: right;
+}
+.right {
+  text-align: right;
+  justify-content: flex-end;
+}
+.separator {
+  border-top: 2px solid $silver;
+  margin-top: 20px;
+}
+.mobile__hidden {
+  position: absolute;
+  top: -9999;
+  left: -9999;
+  @include size(tablet) {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+}
+.main {
+  background: $silver;
+  min-height: 100vh;
+  max-width: 100vw;
+  position: relative;
+}
+.dep {
+  &__container{
+    position: relative;
+    svg {
+      stroke: $black;
+      stroke-width: 1.5px;
+    }
+  }
+  &__content {
+    @include font($black, 1.2em, 700);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-52%);
+  }
+}
+.socio-mini {
+  @include font($black, 1.1em, 700);
+  align-items: center;
+  background: transparent url("/css/images/logos/logo-user.png") no-repeat;
+  display: inline-flex;
+  justify-content: center;
+  height: 38px;
+  width: 38px;
+}
+.icon {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  display: inline-block;
+  &--error {
+    fill: $red;
+  }
+  &--attention {
+    fill: $yelow;
+  }
+  &--waiting {
+    fill: $black;
+  }
+  &--success {
+    fill: $blue;
+  }
+  &--success, &--confirmed {
+    fill: $blue;
+  }
+}
+.title {
+  &__header {
+    @include font($yelow, 1.6em, 700);
+    line-height: 100%;
+    margin-bottom: 15px;
+  }
+  &__container {
+    @include font($yelow, 1.3em, 600);
+    line-height: 100%;
+    margin-bottom: 10px;
+  }
+  &__content {
+    @include font($yelow, 1.1em, 500);
+    line-height: 100%;
+    margin-bottom: 10px;
+  }
+}
+.subtitle {
+  &__line {
+    position: relative;
+    &::before {
+      border-top: 3px solid $yelow;
+      content: '';
+      position: absolute;
+      top:-10px;
+      left: 0;
+      width: 80px;;
+    }
+  }
+  &__header {
+    @include font($black, 1.6em, 700);
+    align-items: center;
+    display: flex;
+    line-height: 100%;
+    margin-bottom: 15px;
+    svg {
+      height: 32px;
+      margin-right: 10px;
+      width: 32px;
+    }
+  }
+  &__container {
+    @include font($black, 1.1em, 500);
+    align-items: center;
+    display: flex;
+    line-height: 100%;
+    margin-bottom: 10px;
+    @include size(tablet) {
+      @include font($black, 1.3em, 500);
+    }
+    svg {
+      height: 23px;
+      margin-right: 10px;
+      width: 23px;
+    }
+  }
+  &__content {
+    @include font($black, 1em, 500);
+    display: block;
+    line-height: 120%;
+    margin-bottom: 10px;
+    @include size(tablet) {
+      @include font($black, 1.1em, 500);
+    }
+    svg {
+      height: 18px;
+      margin-right: 3px;
+      margin-top: -3px;
+      vertical-align: middle;
+      width: 18px;
+    }
+    b {
+      font-weight: 600;
+    }
+    .user__ticket {
+      border: 1px solid $yelow;
+      padding: 6px 10px;
+    }
+  }
+  &__ticket {
+    @include font($black, 1em, 500);
+    align-items: center;
+    border-top: 1px solid $yelow;
+    justify-content: center;
+    display: flex;
+    flex-flow: column;
+    line-height: 150%;
+    margin-bottom: 20px;
+    @include size(tablet) {
+      @include font($black, 1.1em, 500);
+      flex-flow: row wrap;
+    }
+    .subtitle__item {
+      @include font($black, 1em, 500);
+      border-top: 1px solid $yelow;
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      justify-content: center;
+      width: calc(100% - 20px);
+      &:first-child {
+        border-top: 0px;
+      }
+      @include size(tablet) {
+        border: 0;
+        border-right: 1px solid $yelow;
+        margin-top: 5px;
+        width: auto;
+        &:last-child {
+          border-right: 0px solid $yelow;
+        }
+      }
+    }
+  }
+  &__small {
+    @include font($black, .8em, 500);
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-flow: column;
+    line-height: 150%;
+    margin-bottom: 10px;
+    @include size(tablet) {
+      @include font($black, .9em, 500);
+      flex-flow: row wrap;
+    }
+    svg {
+        height: 20px;
+        width: 20px;
+        margin: 0 5px 0 0;
+        display: block;
+    
+    }
+    .subtitle__item {
+      @include font($black, 1em, 400);
+      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      &--4 {
+        //color: $blue;
+      }
+      &--3 {
+        //color: $red;
+      }
+      &--2 {
+        //color: $purple;
+      }
+      .img {
+        margin-right: 5px; 
+        margin-top: -3px;
+        width: 22px;
+      }
+    }
+    &--legend {
+      .subtitle__item {
+        @include font($black, .75em, 500);
+        border: .5px solid $border;
+        border-bottom: 0px;
+        letter-spacing: .3px;
+        padding: 10px 15px;
+        text-transform: uppercase;
+        text-align: center;
+        width: 80%;
+        @include size(mobile) {
+          width: 65%;
+        }
+        @include size(mobile--long) {
+          width: 60%;
+        }
+        @include size(mobile__apple) {
+          width: 60%;
+        }
+        @include size(tablet) {
+          width: auto;
+          border-right:  0px;
+          border-bottom: .5px solid $border;
+        }
+        &:first-child {
+          border-radius: 3px  3px 0 0;
+          @include size(tablet) {
+            border-bottom: .5px solid $border;
+            border-radius: 3px 0 0 3px;
+          }
+        }
+        &:last-child {
+          border-radius: 0 0 3px 3px;
+          border-bottom: .5px solid $border;
+          @include size(tablet) {
+            border-right: .5px solid $border;
+            border-radius: 0 3px 3px 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__destak {
+    @include font($black, .8em, 400);
+    align-items: center;
+    line-height: 145%;
+    margin: 10px 0;
+    b {
+      @include font($black, 1.1em, 600);
+    }
+    @include size(tablet) {
+      @include font($black, .9em, 400);
+
+    }
+    svg {
+      height: 16px;
+        margin-right: 5px;
+        margin-bottom: 3px;
+        width: 16px;
+        vertical-align: middle;
+    }
+  }
+}
+//modal
+.modal {
+  @include modal($black, $yelow);
+  @include font($white, 1em, 300);
+  z-index: 99;
+
+}
+
+//lista
+.list {
+  font-size: .9em;
+  &__item {
+    line-height: 120%;
+    position: relative;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    &::before {
+      background: $yelow;
+      border-radius: 50%;
+      content: '';
+      position: absolute;
+      left: 0px;
+      height: 6px;
+      top: 4px;
+      width: 6px;
+    }
+  }
+}
+
+.article__content {
+  background: $white;
+  padding: 8px 15px;
+  
+  width: calc(100% 30px);
+  height: 50px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  @include size(tablet) {
+    padding: 15px;
+  }
+ 
+}
+.account {
+  padding: 53px 0 90px;
+  @include size(tablet--pro) {
+      min-width: 1000px;
+      padding: 0 0 0 300px;
+  } 
+  &__title {
+      @include font($black, 1.6em, 500);
+
+      padding: 22px 15px 10px;
+      //text-transform: uppercase;
+      @include size(tablet) {
+          @include font($black, 1.5em, 500);
+          margin: 10px;
+      }  
+  }
+  &__container {
+      padding: 10px 5px;
+      display: flex;
+      //flex-flow: column;
+      flex-flow: row wrap;
+      @include size(tablet) {
+          flex-flow: row wrap;
+          padding: 20px;
+      } 
+      @mixin svg() {
+        fill: $black;
+        height: 30px;
+        right: 15px;
+        top: 15px;
+        width: 30px;
+        position: absolute;
+      }
+
+      form {    
+          margin: 2px;
+          height: 110px;
+          position: relative;
+          width: calc(50% - 4px) ;
+          .submenu__link--button {
+              @include font($black, .9em, 400);
+              appearance: none;
+              -webkit-appearance: none;
+              -moz-appearance: none;
+              background: $white;
+              border: 0;
+              cursor: pointer;
+              height: 100%;
+              outline: 0;
+              width: 100%;
+              .btn__text {
+                position: absolute;
+                bottom: 15px;
+                left: 15px;
+              }
+              svg {
+                @include svg();                      
+              }
+
+          }
+      }
+      .submenu__link {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+          background: $white;
+          border: 0;
+          //border-radius: 3px;
+          //box-shadow: 0px 7px 7px -5px rgba($gray, .2);
+          @include font($black, .9em, 400);
+          align-items: flex-end;
+          display: flex;
+          justify-content: flex-start;
+          margin: 2px;
+          min-height: 80px;
+          padding: 15px;
+          position: relative;
+          text-align: left;
+          width: calc(50% - 34px) ;
+          svg {
+            @include svg();                      
+          }
+      }
+      .account__link--ing {
+          background: $yelow;
+      }
+  }
+}
+.conteudo {
+  padding: 53px 0 70px;
+  @include size(tablet--pro) {
+      min-width: 300px;
+      padding: 0 0 0 250px;
+      height: 100%;
+  } 
+  @include size(desktop) {
+    min-width: 1000px;
+    padding: 0 0 0 300px;
+  } 
+  &--popup {
+    padding: 0;
+    @include size(tablet--pro) {
+      max-width: 1200px;
+      min-width: 1000px;
+      margin: 0 auto;
+    } 
+  }
+  .header {
+    @include font($black, 1.4em, 500);
+    line-height: 100%;
+    padding: 20px 0 5px 20px;
+    position: relative;
+    @include size(tablet) {
+      @include font($black, 1.8em, 500);
+      padding: 25px 0 0px 25px;
+    }
+    &__tickets{
+      width: 100%;
+      @include size(tablet--pro) {
+        width: auto;
+      }
+    }
+  }
+  .box {
+    background: $white;
+    margin: 15px;
+    padding: 20px;
+    @include size(tablet) {
+      margin: 30px;
+    }
+    p {
+      padding: 10px 0;
+    }
+  }
+  .mobile {
+    @include font($black, .8em, 400);
+    border-top: 1px solid $silver;
+    margin-top: 10px;
+    padding: 10px 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    &::before {
+      @include font($black, 1.2em, 400);
+      content: '\02c2';
+      left: 10px;
+      position: absolute;
+      top: 10px;
+    }
+    &::after {
+      @include font($black, 1.2em, 400);
+      content: '\02c3';
+      right: 10px;
+      position: absolute;
+      top: 10px;
+    }
+    @include size(tablet) {
+      display: none;
+    }
+  }
+  .table {
+    &-overflow {
+      overflow-x: auto; 
+      padding: 30px 0 20px;
+      position: relative;
+      text-align: center;
+      @include size(tablet) {
+        overflow-x: hidden; 
+      }
+      .mobile {
+        @include size(tablet) {
+          display: none;
+        }
+      }
+    }
+    table {
+      //display: inline-block;
+      margin-bottom: 30px;
+      width: 100%;
+      thead  { 
+        tr{
+          position: absolute;
+          top: -9999px;
+          left: -9999px;
+          @include size(tablet) {
+            position: relative;
+            top: 0;
+            left: 0;
+          }
+          border-bottom: 1px solid $black; 
+          th {
+            @include font($black, .9em, 500);
+            padding: 10px 0;
+          }
+        }
+        .tr__ticket {
+          position: relative;
+          top: 0;
+          left: 0;
+        }
+      }
+      tbody {
+        tr {
+          padding: 10px 0;
+          display: flex;
+          flex-flow: column;
+          @include size(tablet) {
+            display: table-row;
+          }
+          &:nth-child(odd) {
+            background: $silver;
+          }
+          td {
+            @include font($black, .9em, 500);
+            padding: 25px 10px 10px;
+            display: flex;
+            position: relative;
+            text-align: left;
+            width: calc(100% - 20px);
+            @include size(tablet) {
+              display: table-cell;
+              padding: 10px;
+              text-align: center;
+              width: auto;
+            }
+            &:last-child {
+              border-bottom: 0px
+            }
+            &::before { 
+              @include font($black, .85em, 400);
+              position: absolute;
+              /* Top/left values mimic padding */
+              top: 6px;
+              left: 10px;
+              width: 45%; 
+              padding-right: 10px; 
+              white-space: nowrap;
+              text-align: left;
+              /* Label the data */
+              content: attr(data-column);  
+              @include size(tablet) {
+                display: none;
+              }
+            }
+            
+          }
+        }
+      }
+    }
+  }
+}
+.conteudo--modal {
+  background: $white;
+  padding: 0px;
+  @include size(tablet) {
+    padding: 20px;
+    min-width: auto;
+    height: auto;
+  }
+}
+
+.button {
+  @include font($black, 1em, 500);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: $yelow;
+  align-items: center;
+  border-radius: 3px;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  //height: 40px;
+  justify-content: center;
+  outline: 0;
+  padding: 10px;
+  text-decoration: none;
+  text-align: center;
+  width: calc(100% - 20px);
+  
+  @include size(tablet) {
+    display: inline-flex;
+    padding:  10px 34px;
+    width: auto;
+    &:hover {
+      color: $black;
+    }
+  }
+  &--right {
+    margin: 20px 0 10px;
+    width: calc(100% - 0px);
+    @include size(tablet) {
+      margin: 0;
+      float: right;
+      width: auto;
+    }
+  }
+  &--error {
+    background: $red;
+    color: $white;
+    &:hover {
+      color: $white;
+    }
+  }
+  &--icon {
+    padding: 10px;
+    margin: 2px;
+  }
+}
+button.button,
+input.button {
+  width: calc(100% - 0px);
+  max-height: 40px;
+  &[disabled] {
+    opacity: .5;
+    cursor: not-allowed;
+  }
+  @include size(tablet) {
+    display: inline-flex;
+    padding:  10px 34px;
+    width: auto;
+    &--icon {
+      padding: 10px;
+      margin: 2px;
+    }
+  }
+}
+.alterar {
+  background: transparent url('/css/images/logos/edit.png') no-repeat;
+  background-size: 100%;
+  border: 0;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+}
+
+
+.form {
+  //CHECKBOX
+  .form__checkbox {
+    min-height: 50px;
+    position: relative;
+    padding-left: 65px;
+    padding-top: 7px;
+    input[type='checkbox'] {
+      display: none;
+      &:checked + .label__checkbox {
+        .btn__check {
+          background: $yelow;
+          left: 22px;
+        }
+      }
+    }
+    .label__checkbox {
+      align-items: center;
+      background: rgba($black, .15);
+      //border: 2px solid rgba($black, .2);
+      border-radius: 30px;
+      cursor: pointer;
+      display: inline-flex;
+      height: 30px;
+      left: 0;
+      margin-right: 10px;
+      position: absolute;
+      top: 0;
+      width: 50px;
+      .btn__check {
+        background: rgba($black, .2);
+        border-radius: 25px;
+        border: 1px solid rgba($black, .1);
+        display: inline-flex;
+        height: 22px;
+        left: 3px;
+        position: absolute;
+        top:3px;
+        transition: all .2s ease-in-out;
+        width: 22px;
+      }
+      .checkbox__text {        
+      }
+    }
+  }
+  //RADIO
+  .form__radio{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    width: auto;
+    @include size(tablet) {
+      justify-content: flex-start;
+
+    }
+    &--card {
+      flex-direction: column;
+      justify-content: center;
+      .radio__btn {
+        padding: 10px;
+        margin: 10px 0;
+        width: calc(100% - 20px);
+        
+      }
+      @include size(tablet) {
+        flex-direction: row;
+        justify-content: center;
+        .radio__btn {
+          padding: 10px;
+          margin: 10px 0;
+          width: auto;
+          
+        }
+      }
+    }
+    .radio__input {
+      display: none;
+      &:checked + .radio__btn {
+          @include font(rgba($black, 1), .9em, 500);
+          background: $white;
+          letter-spacing: .5px;
+          box-shadow: 0px 7px 7px -5px rgba($gray, .2);
+          border: 1px solid rgba($black, .8);
+          text-transform: uppercase;
+          transform: scaleY(1.15);
+          padding-right: 36px;
+          position: relative;
+          z-index: 3;
+          &::before, &::after {
+            background: $black;
+            border-radius: 3px; 
+            content: '';
+            height: 1px;
+            position: absolute;
+            right: 22px;
+            top:52%;
+            transform: translateY(-50%);
+            transform: rotate(45deg);
+            width: 6px;
+          }
+          @include size(tablet--pro){
+            //transform: scale(1.15);
+          }
+        &::after {
+            right: 13px;
+            margin-top: -2px;
+            transform: rotate(-45deg);
+            width: 12px;
+        }
+      }
+    }
+    .radio__btn {
+      @include font($black, 1em, 500);
+      align-items: center;
+      background: $silver;
+      border-radius: 3px;
+      cursor: pointer;
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      padding: 0 10px;
+      position: relative;
+      width: 49%;
+      margin: 1px;
+      @include size(tablet) {
+        width: auto;
+        padding: 0 20px;
+      }
+      
+    }
+    &--buy {
+      align-items: stretch;
+      flex-direction: column;
+      width: 100%;
+      .radio__input {
+        &:checked + .radio__btn {
+            //padding:15px 35px 15px 20px !important;
+            //border: 1px solid rgba($yelow, 1);
+            font-weight: 600;
+            //color: $yelow;
+            //width:calc(100% - 55px);
+          }
+      }
+      @include size(tablet) {
+        //width: auto;
+        flex-direction: row;
+      }
+      .radio__btn {
+        //background: $white;
+        //border: 1px solid rgba($black, .5);
+        //height:  auto;
+        margin: 4px 0;
+        //padding:15px ;
+        //width:calc(100% - 32px);
+        @include size(tablet) {
+          flex: 100%;
+          margin: 4px;
+          white-space: nowrap;
+          width: calc(100% - 48px);
+        }
+      }
+    }
+    &--ticket {
+      flex-wrap: wrap;
+      .socio-mini {
+        background-position-x: center;
+        display: block;
+        margin-right: 20px;
+        text-align: center;
+        padding-top: 10px;
+        width: 100%;
+        @include size(tablet) {
+          width: 45px;
+        }
+      }
+      .radio__btn {
+        @include font($black, 1em, 500);
+        //background: rgba($black, .1);
+        //box-shadow: 0px 7px 7px -5px rgba($gray, .2);
+        //box-shadow: inset 0 0 0 2px rgba($black, .1);
+        //border: 1px solid  rgba($yelow, .8);
+        //background: $white;
+        margin: 5px 0;
+        width: calc(100% - 20px);
+        .radio__img {
+          margin:0 5px;
+          vertical-align: middle;
+          width: 20px;
+        }
+        svg {
+          margin-left: 10px;
+        }
+        .socio {
+         font-weight: 700;
+         margin-right: 10px;
+         font-size: 1.1em;
+        }
+        &--disabled {
+          background: $silver;
+        }
+        &--2 {
+          @include font(rgba($purple, .9), 1em, 500);
+          background: $white;
+          box-shadow: inset 0 0 0 1px $border;          
+          cursor: not-allowed;
+        }
+        &--3 {
+          @include font(rgba($red, .9), 1em, 500);
+          background: $white;
+          box-shadow: inset 0 0 0 1px $border;
+          cursor: not-allowed;
+        }
+        &--4 {
+          @include font(rgba($blue, .9), 1em, 500);
+          background: $white;
+          box-shadow: inset 0 0 0 1px $border;
+          cursor: not-allowed;
+        }
+        &--5 {
+          @include font(rgba($black, .9), 1em, 500);
+          background: $white;
+          box-shadow: inset 0 0 0 1px $border;          
+          cursor: not-allowed;
+        }
+        
+        @include size(tablet) {
+          margin: 3px;
+          width: auto;
+        }
+      }
+    }
+  }
+  &__item {
+    padding: 10px 0;
+    & label {
+      @include font($black, .85em, 400);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .text-input,
+    & input[readonly="readonly"],
+    select {
+      @include font($black, 1em, 400);
+      background: $silver;
+      border: 0;
+      border-radius: 3px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      padding: 12px;
+      outline: 0;
+      width: calc(100% - 0px);
+
+    }
+    
+    select {
+      background-image:
+        linear-gradient(45deg, transparent 50%, gray 50%),
+        linear-gradient(135deg, gray 50%, transparent 50%);
+ 
+      background-position:
+        calc(100% - 20px) calc(1em + 2px),
+        calc(100% - 15px) calc(1em + 2px),
+        calc(100% - 2.5em) 0.5em;
+      background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+      background-repeat: no-repeat;
+    }
+
+    select:focus {
+      background-image:
+        linear-gradient(45deg, $black 50%, transparent 50%),
+        linear-gradient(135deg, transparent 50%, $black 50%);
+      background-position:
+        calc(100% - 15px) 1em,
+        calc(100% - 20px) 1em,
+        calc(100% - 2.5em) 0.5em;
+      background-size:
+        5px 5px,
+        5px 5px,
+        1px 1.5em;
+      background-repeat: no-repeat;
+      border-color: green;
+      outline: 0;
+    }
+    select:-moz-focusring {
+      color: transparent;
+      text-shadow: 0 0 0 #000;
+    }
+    & input[readonly="readonly"].text-readonly {
+      @include font(rgba($red, .4), 1em, 500);
+      border: 1px solid rgba($red, .4);
+    }
+    & small {
+      @include font(rgba($red, .6), .8em, 500);
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  &--wrap {
+    @include size(tablet) {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    .form__item {
+      &--ticket {
+        border: 1px solid $border;
+        border-radius: 0px;
+        margin: 10px 0;
+        padding: 10px 15px;
+        width: calc(100% - 34px);
+        .form__item--small, .form__item--large  {
+          width: calc(100% - 2px);
+        }
+        
+        @include size(tablet--pro) {
+          padding: 10px 10px;
+          width: calc(100% - 44px);
+          display: flex;
+          flex-wrap: nowrap;
+          .form__item--small {
+            border-right: 1px solid $border;
+            width: calc(30% - 22px);
+          }
+          .form__item--large {
+            width: calc(70% - 20px);
+          }
+        }
+      }
+      &--reverse {
+        .button {
+          margin-bottom: 20px;
+        }
+        @include size(tablet) {
+          flex-direction: row-reverse;
+          .button {
+            margin-bottom: 0px;
+          }
+        }
+      }
+      
+      &--btn {
+        @include size(tablet) {
+          width: calc(100% - 20px);
+          align-items: flex-end;
+          display: flex;
+          justify-content: space-between;
+          padding-top: 20px;
+        }
+        .button {
+          margin: 15px 0;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          @include size(tablet--pro) {
+            margin: 0px;
+          }
+        }
+      }
+
+      &--card {
+        display: flex;
+        flex-flow: column;
+        max-width: 500px;
+        text-align: left;
+        @include size(tablet) {
+          flex-flow: row wrap;
+        }
+      }
+      @include size(tablet) {
+        flex: 1 auto;
+        margin: 10px;
+        &--mini {
+          width: calc(5% - 20px);
+        }
+        &--small {
+          width: calc(25% - 20px);
+        }
+        &--triple {
+          width: calc(33.33% - 20px);
+        }
+        &--middle {
+          width: calc(37.5% - 20px);
+        }
+        &--medium {
+          width: calc(50% - 20px);
+        }
+        &--large {
+          width: calc(75% - 20px);
+        }
+        &--full {
+          width: calc(100% - 20px);
+        }
+        &--multiples {
+          display: flex;
+          flex-flow: row wrap;
+        }
+      }
+    }
+  }
+
+}
+///////////////////////////////////// MSG
+.mensagem-geral {
+  @include font($black, .9em, 500);
+  cursor: pointer;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  line-height: 130%;
+  margin-bottom: 20px;
+  padding: 10px 50px 10px 15px;
+  width: calc(100% - 67px);
+  transition: all .2s ease;
+  strong {
+    display: block;
+    margin: 0 0 5px 0;
+    font-weight: 600;
+  }
+  a {
+    display: inline-block;
+    font-weight: 600;
+    text-decoration: underline;
+  }
+  @include size(tablet--pro) {
+    @include font($black, 1em, 500);
+    padding: 20px 50px 20px 20px;
+    width: calc(100% - 72px);
+    strong {
+      display: inline-block;
+      margin: 0 10px 0 0;
+    }
+  }
+  .close {
+    @include btn__close($black);
+    position: absolute;
+    height: 30px;
+    right: 10px;
+    top: 10px;
+    width: 30px;
+    transform: scale(.7);
+  }
+}
+.atencao-mensagem {
+  border:1px solid $yelow;
+  .close {
+    @include btn__close($yelow);
+  }
+}
+.informacao-mensagem {
+  border:1px solid rgba($black, .4);
+  .close {
+    @include btn__close($black);
+  }
+}
+.sucesso-mensagem {
+  border:1px solid $blue;
+  strong {
+    color: $blue;
+  }
+  @include btn__close($blue);
+  &::before, &::after {
+    .close {
+      @include btn__close($blue);
+    }
+
+  }
+}
+.erro-mensagem {
+  border:1px solid $red;
+  strong {
+    color: $red;
+  }
+  .close {
+    @include btn__close($red);
+  }
+}
+///////////scrol
+.scroll__mobile {
+  overflow-x: auto;
+  @include size(tablet) {
+    overflow-x: hidden;
+  }
+}
+.scroll__content {
+  @include font($black, .8em, 500);
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  p {
+    @include size(tablet) {
+      display: none;
+    }
+  }
+  ul {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 10px;
+    width: calc(100% - 20px);
+    li {
+      height: 15px;
+      width: 15px;
+      position: relative;
+      &::before, &::after {
+        background: $black;
+        content: '';
+        height: 1px;
+        position: absolute;
+        width: 5px;
+        top: 6px;
+        transform: rotate(-45deg);
+      }
+      &::after {
+        transform: rotate(45deg);
+        top: 9px;
+      }
+      &:last-child{
+        transform: rotate(180deg)
+      }
+    }
+    @include size(tablet) {
+      display: none;
+    }
+  }
+}
+.ativacao {
+  margin:0 auto;
+  width:430px;
+  height: 270px;
+  position:relative;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 4px #ccc; 
+}
+.ativar-mv {
+  background: transparent url('img/bg-ativacao-mv.jpg') no-repeat;
+  color: #fff;
+}
+.ativar-mh {
+  background: transparent url('img/bg-ativacao-mh.jpg') no-repeat;
+  color: #fff;
+}
+.ativar-ma {
+  background: transparent url('img/bg-ativacao-ma.jpg') no-repeat;
+  color: #fff;
+}
+.ativar-mp {
+  background: transparent url('img/bg-ativacao-mp.jpg') no-repeat;
+  color: #000;
+}
+.ativar-mn {
+  background: transparent url('img/bg-ativacao-mn.jpg') no-repeat;
+  color: #fff;
+}
+.ativar-torcidas {
+  background: transparent url('img/bg-ativacao-torcidas.jpg') no-repeat;
+  color: #333;
+}
+.ativar {
+  background: transparent url('img/bg-ativacao.jpg') no-repeat;
+  color: #333;
+}
+.ativacao .login {
+  text-align: center;
+  display:block;
+  padding: 160px 0 0px 0;
+  font-size: 1em;
+  text-transform:uppercase;
+  text-align: center;
+  letter-spacing: 1px;    
+}
+.ativacao .campo {
+  @include font($black, 1em, 500);
+  border: 0px solid $white;
+  padding: 4px;
+  background-color: rgba($white, .4);   
+  width: 85px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px; 
+}
+.ativacao .campo2 {
+  @include font($black, 1em, 500);
+  border: 0px solid $white;
+  padding: 4px;
+  background-color: rgba($white, .4);      
+  width: 30px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px; 
+}
+.ativacao .campo:focus, .ativacao .campo2:focus {
+  background-color: rgba($white, .8); 
+  outline: 0;
+}
+.ativacao .matricula {
+  text-shadow: none;
+  left: 5px;
+  top: 185px;
+  width: 250px;
+  right: 230px; 
+  position: absolute; 
+  font-size: 0.9em;    
+}
+.ativacao .nasc {
+  text-shadow: none;
+  width: 150px;
+  position: absolute;
+  right: 15px; 
+  bottom: 50px;   
+  text-align:right;  
+  font-size: 1em; 
+}
+.ativacao .codigo {
+  text-shadow: none;
+  width: 350px;
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+  text-align:right;
+  font-size: 0.9em;
+}
+
+@include popup__modal();
+
+@import "./components/change-chair.scss"; 
+
+.blocoBancos{
+  text-align: center;
+  display: inline-block;
+  padding: 10px;
+}
+
+.blocoBancos > input[type=radio]:checked + label {
+  border: 1px solid $yelow;
+  border-radius: 3px; 
+  display: block !important;
+  padding: 20px;
+}

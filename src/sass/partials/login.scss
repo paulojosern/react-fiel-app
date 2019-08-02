@@ -1,0 +1,153 @@
+section.login {
+    background: $silver;
+    padding: 60px 0 30px;
+    .login__container {
+        padding: 0 1.5em;
+        position: relative;
+        width: calc(100% - 3em);
+        .login__side {
+            height: 200px;
+            position: relative;
+            &::before {
+                @include font($black, 45px, 900);
+                content: 'bem vindo de volta'; 
+                font-style:  italic;
+                left: 0px;
+                line-height: 74%;
+                position: absolute;
+                text-transform: uppercase;
+                top: 30px;
+                word-spacing:9999px;
+                width: 50%;
+                @include size(tablet) {
+                    @include font($black, 55px, 900);   
+                } 
+                @include size(tablet--pro) {
+                    @include font($black, 70px, 900);   
+                } 
+            }
+            @include size(tablet) {   
+                width: 40%;    
+            } 
+            @include size(tablet--pro) {
+                width: 35%;
+            } 
+        }
+        .login__content {
+            padding: 0 0 30px 0;
+            .login__parcelamento {
+                line-height: 1.5em;
+                .parcelamento__msg {
+                    @include font($black, 1.6em, 400);
+                }
+                .parcelamento__info {
+                    padding: 15px 0;
+                    p {
+                        @include font($black, 1.3em, 500);
+                        padding: 2px 0;
+                    }
+                }
+                .parcelamento__note {
+                    padding: 1px 0 30px;
+                    line-height: 1.3em;
+                    p {
+                        @include font($black, .9em, 400);
+                        padding: 2px 0;
+                    }
+                }
+                .parcelamento__pagamento {
+                    padding: 20px 0;
+                    display: flex;
+                    flex-direction: column;
+                    .btn__pagamento {
+                        @include font($black, .9em, 400);
+                        -webkit-appearance: none;
+                        -moz-appearance: none;
+                        appearance: none;
+                        background: $white;
+                        border: 0;
+                        border-radius: 3px;
+                        cursor: pointer;
+                        margin: 10px 0;
+                        padding: 20px;
+                        width: 100%;
+                        transition: all .3 ease;
+                        h3 {
+                            @include font($black, 1.4em, 600);
+                            padding: 10px
+                        }
+                        &:hover {
+                            box-shadow: 0px 7px 7px -5px rgba($gray, .15);
+                            border: 1px solid $gray;
+                        }
+                    }
+                }
+            }
+            @include size(tablet) {
+                padding: 20px 0 50px 0;
+                width: 55%;
+            }  
+            @include size(tablet--pro) {
+                width: 60%;
+            }  
+        }
+        .login__side--register {
+            height: 250px;
+            &::before {
+                @include font($black, 3.5em, 900);
+                content: 'Novo fiel Tor ce dor?'; 
+                @include size(tablet) {
+                    @include font($black, 70px, 900);   
+                } 
+            }
+        }
+        .login__side--parcelamento {
+            height: 250px;
+            &::before {
+                @include font($black, 3.5em, 900);
+                content: 'Par ce la men to'; 
+                @include size(tablet) {
+                    @include font($black, 70px, 900);   
+                } 
+            }
+        }
+        .login__side--pagamento {
+            height: 180px;
+            &::before {
+                @include font($black, 3.5em, 900);
+                content: 'Paga men to'; 
+                @include size(tablet) {
+                    @include font($black, 70px, 900);   
+                } 
+            }
+        }
+        .login__side--password {
+            height: 150px;
+            &::before {
+                @include font($black, 2.6em, 900);
+                content: 'ESQUECEU SUA SENHA?'; 
+                @include size(tablet) {
+                    @include font($black, 45px, 900);   
+                } 
+            }
+        }
+        @include size(tablet) {
+            display: flex;
+            flex-direction: row;
+            margin: 30px 0 0 0;
+            padding: 0 2em;
+            position: relative;
+            width: calc(90% - 4em);
+        }
+        @include size(tablet--pro) {
+            margin: 40px auto;
+        }
+        @include size(desktop) {
+            padding: 3em;
+            width: calc(1000px - 6em);
+        }
+    }
+    @include size(tablet) {
+        padding: 60px 0;
+    }
+}

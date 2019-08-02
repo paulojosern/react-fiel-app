@@ -1,0 +1,383 @@
+//jogos
+.counters {
+    align-items: center;
+    background: $white;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0px 0 0;
+    width: calc(100% - 0px);
+    &__empty  {
+        @include font($black, 1em, 500);
+        line-height: 120%;
+        padding: 0 30px;
+        text-align: center;
+        @include size(tablet--pro) {
+            @include font($black, 1.2em, 500);
+            padding: 20px;
+        }
+    }
+    @include size(tablet--pro) {
+      padding: 10px 0;
+    }
+    #contador {   
+        max-width: 100%;
+        .sem-jogo {
+                @include font($black, 3.2vw, 600);
+                @include size(tablet--pro) {
+                @include font($black, 1.2em, 600);
+            }
+      }
+      .swiper-contador {
+        height: auto;
+        max-height: 128px;
+        padding: 0;
+        transition: height .2s ease-in-out;
+        width: 100%;
+        &--open {
+          height: 250px !important;
+          max-height: 250px !important;
+        }
+        @include size(tablet--pro) {
+          height: 140px;
+          max-height: 140px;
+        }
+        .contador-left,
+        .contador-right {
+          position: absolute;
+          right: 7px;
+          top: 55px;
+          height:50px;
+          transform: translateY(-50%);
+          width: 20px;
+          z-index: 5;
+          cursor: pointer;
+          &::before, &::after {
+            background: $yelow;
+            border-radius: 3px; 
+            content: '';
+            height: 1px;
+            position: absolute;
+            right: -2px;
+            top:15px;
+            width: 20px;
+            transform: rotate(65deg);
+          }
+          &::after {
+              transform: rotate(-65deg);
+              top: 33px;
+          }
+          @include size(tablet--pro) {
+            
+            right: 15px;
+            top: 70px;
+            &::before, &::after {
+              height: 2px;
+            }
+          }
+        }
+        .contador-right{
+            left: 7px;
+            transform: translateY(-50%) rotate(180deg);
+            @include size(tablet--pro) {
+              left: 15px;
+            }
+        }
+        .swiper-wrapper{
+          .swiper-slide {
+            @include size(tablet--pro) {
+              align-items: center;
+              justify-content: center;
+              display: flex;
+            }
+            .venda_aberta .counter__ini {
+              display: block;
+  
+            }
+            .venda_aberta .counter__closed {
+                display: none;
+            }
+          /***VENDA ENCERRADA *****/
+            .venda_encerrada .counter__ini {
+                display: none;
+            }
+            .venda_encerrada .counter__closed {
+                display: block;
+  
+            }
+            .content-slide {
+              .counters__container {
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                padding-bottom: 10px;
+                @include size(tablet--pro) {
+                  flex-direction: row;
+                  padding-bottom: 0px;
+                }
+                .counters__content {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  justify-content: center;
+                  text-align: center;
+                  padding: 0px 20px;
+                  width: calc(100% - 40px);
+                  @include size(tablet--pro) {
+                    align-items: flex-end;
+                    justify-content: flex-end;
+                    padding:0 10px 0 30px;
+                    text-align: right;
+                    width: calc(50% - 40px); 
+                  }
+                  .counters__jogo {
+                      @include font($black, 3.8vw, 600);
+                      margin-bottom: 5px;
+                      line-height: 100%;
+                      @include size(tablet) {
+                        @include font($black, 1.3em, 600);
+                        margin-bottom: 10px;
+                      }
+                  }
+                  .counters__date {
+                      @include font($black, 2.5vw, 500);
+                      span {
+                        display: block;
+                      }
+                      @include size(tablet) {
+                        @include font($black, .8em, 400);
+                        line-height: 130%;
+                        span {
+                          display: inline-block;
+                          margin-left: 10px;
+                        }
+                      }
+                  }
+                  .counters__counter {
+                    @include font($black, 2.8vw, 400);
+                    
+                    height: 45px;
+                    @include size(tablet) {
+                      padding-top: 3px;
+                      @include font($black, .9em, 500);
+                      height: auto;
+                    }
+                    .counter__ini {
+                      @include font($black, .85em, 400);
+                      text-transform: uppercase;
+                    }
+                    .counter__closed {
+                      @include font($red, 1em, 400);
+                      text-transform: uppercase;
+                      line-height: 170%;
+                      span {
+                        @include font($red, 1.4em, 600);
+                      }
+                    }
+                    .contador {
+                      @include font($black, 1.5em, 500);
+                      padding: 5px 0;
+                      @include size(tablet) {
+                        @include font($black, 1.5em, 500);
+                        padding: 5px  0 0 0;
+                      }
+                      small {
+                        font-size: 0.7em;
+                        font-weight: 400;
+                        display: inline-block;
+                        padding: 0px 0.5em 0px 0.3em;
+                      }
+                    }    
+                  }
+                }
+                .setores {
+                  display: none;
+                  @include size(tablet--pro) {
+                    @include font($black, .8em, 500);
+                    padding: 0 10px;
+                    width: calc(20% - 0px);
+                    display: none;
+                    line-height: 210%;
+                    span {
+                      display: inline-block;
+                    }
+  
+                  }
+                }
+                .open__points {
+                  @include font($black, 2.2vw, 400);
+                  display: block;
+                  position: relative;
+                  margin: 0 auto;
+                  height: 13px;
+                  z-index: 11;
+                  @include size(tablet) {
+                    @include font($black, .75em, 500);
+                  }
+                  @include size(tablet--pro) {
+                    display: none;
+                  }
+                  &::before {
+                    //background:  rgba($black, .2);
+                    background: $yelow;
+                    content:"";
+                    position: absolute;
+                    bottom: -5px;
+                    left: 50%;
+                    width: 40px;
+                    height: 1.5px;
+                    transform: translateX(-50%);
+                    z-index: 5;
+                  }
+                }
+                .counters__points {
+                  display: block;
+                  height: 130px;
+                  padding-top: 10px;
+                  position: relative;
+                  width: 100%;
+                  z-index: 10;
+                  @include size(tablet--pro) {
+                    height: auto;
+                    padding:0px 30px 0 10px;
+                    width: calc(50% - 40px);
+                  }
+                  .close__points {
+                    @include font($black, 2.8vw, 500);
+                    position: absolute;
+                    height: 15px;
+                    bottom: 0px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 70px;
+                    z-index: 9;
+                    @include size(tablet--pro) {
+                      display: none;
+                    }
+                    &::before {
+                      background:  $yelow;
+                      content:"";
+                      position: absolute;
+                      bottom: 0px;
+                      left: 50%;
+                      width: 50px;
+                      height: 1.5px;
+                      transform: translateX(-50%);
+                      z-index: 5;
+                    }
+                    &::after {
+                      background:  $yelow;
+                      content:"";
+                      position: absolute;
+                      bottom: 5px;
+                      left: 50%;
+                      width: 40px;
+                      height: 1.5px;
+                      transform: translateX(-50%);
+                      z-index: 5;
+                    }
+                  }
+                  .points__all {
+                    display: flex;
+                    flex-flow: column wrap;
+                    justify-content: center;
+                    text-align: center;
+                    position: absolute;
+                    bottom: 20px;
+                    width: 100%;
+                    left: 0;
+                    opacity: 0;
+                    font-size: .95em;
+                    font-weight: 400;
+                    @include size(tablet--pro) {
+                      bottom: 0px;
+                      left: 0;
+                      opacity: 1;
+                      position: relative;
+                      padding: 0 0 0 0px;
+                      top: 0;
+                      text-align: left;
+                      width: calc(100% - 10px);
+                    }
+                    .points__item {
+                      align-items: center;
+                      display: flex;
+                      justify-content: center;
+                      @include size(tablet--pro) {
+                        align-items: flex-start;
+                        border-top: 0px solid $silver;
+                        margin: 1px 0;
+                        justify-content: flex-start;
+                      }
+                      &:last-child {
+                        @include size(tablet--pro) {
+                          border-right: 0px solid $silver;
+                        }
+                        p {
+                          white-space: nowrap;
+                        }
+                      }
+                      .item__content {
+                        @include font($black, .85em, 400);
+                        align-items: center;
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: center;
+                        padding: 2px 20px 4px;
+                        @include size(tablet--pro) {
+                          @include font($black, .9em, 400);
+                          //border: 1px solid $silver;
+                          justify-content: flex-start;
+                          padding: 2px;
+                          max-width: 400px;
+                          text-align: left;
+                          padding: 6px;
+                        }
+                        .point {
+                          @include font($black, 1.3em, 500);
+                          display: inline-block;
+                        }
+                        p {
+                          width: 100%;
+                          text-align: center;
+                          @include size(tablet--pro) {
+                            text-align: left;
+                          }
+                        }
+                        .item {
+                          width: 50%;
+                          white-space: nowrap;
+                          
+                          .item__text {
+                  
+                            font-weight: 700;
+                            display: inline-block;
+
+                          }
+                         &--open {
+                          @include font($blue, 1em, 500);
+                         }
+                         &--close {
+                          @include font($red, 1em, 500);
+                         }
+                        }
+                      }
+                    }
+                    p {
+                      display: block;
+                      padding-bottom: 2px;
+                      span {
+                        display: block;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+}
+  

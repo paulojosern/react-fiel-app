@@ -1,0 +1,370 @@
+html {
+  //scroll-behavior: smooth;
+}
+body {
+    @include font($black, 14px, 300);
+    background: $white;
+    letter-spacing: .3px;
+    line-height: 1.1em;
+    //overflow-y: auto;
+}
+a {
+  color: $black;
+  text-decoration: none;
+  &:hover {
+    color: inherit;
+    //text-decoration: underline;
+    text-decoration: none;
+    
+  }
+}
+.overflow {
+  overflow: hidden;
+}
+//sctructure
+strong {
+  font-weight: 700;
+}
+h2 {
+  font-weight: 700;
+  font-size: 1.5em;
+  line-height: 1.2em;
+}
+h3 {
+  font-weight: 600;
+  font-size: 1.2em;
+}
+.main {
+  min-height: 100vh;
+  max-width: 100vw;
+}
+.link {
+    //color: $link;
+    text-decoration: underline;
+    &:hover {
+      color: inherit;
+    }
+}
+.list {
+  padding-left: 20px;
+  list-style: none;
+  &__item {
+    position: relative;
+    padding-left: 5px;
+    &::before {
+      content: "";
+      background:$yelow;
+      border-radius: 50%;
+      left: -1em;
+      height: 4px;
+      position: absolute;
+      top:10px;
+      transform: translateY(-50%);
+      width: 4px;
+    }
+  }
+}
+
+@mixin list__decimal($color, $bold, $size) {
+    list-style-type: none;
+    li {
+      counter-increment: step-counter;
+      padding: 2px 0;
+      margin-left: 15px;
+      &::before {
+        content: counter(step-counter) ". ";
+        color: $color;
+        font-weight: $bold;
+        font-size: $size;
+      }
+    }
+}
+
+// modifier
+.align--center {
+  text-align: center;
+}
+.align--right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+// //button
+// .btn {
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   appearance: none;
+//   align-items: center;
+//   border-radius: 3px;
+//   border: 0;
+//   cursor: pointer;
+//   display: inline-flex;
+//   justify-content: center;
+//   outline: 0;
+//   padding:  0 34px;
+//   text-decoration: none;
+  
+// }
+
+// @mixin primary($height) {
+//   background: $yelow;
+//   @include font($black, 0.9em, 600);
+//   transition: all .3s ease;
+//   height: $height
+// }
+
+// .btn--primary {
+//   @include primary(38px);
+//   @include size(desktop) {
+//     @include primary(40px); 
+//   }
+//   &:disabled {
+//     @include primary(38px);
+//     opacity: .5;
+//   }
+// }
+
+// .btn--home {
+//   @include font($black, .85em, 800);
+//   height: 42px;
+//   @include size(tablet) {
+//     @include font($black, 1em, 800);
+//     height: 48px;
+//   }
+// }
+
+// .btn--categories {
+  
+//   white-space: nowrap;
+//   @include size(tablet--pro) {
+//     @include font($black, 0.85em, 500);
+//     padding: 0 20px;
+//     margin-left: -20px;
+//   }
+//   @include size(desktop) {
+//     margin-left: -120px;
+//   }
+// }
+
+// .btn--menu {
+//   @include font($yelow, 1em, 600);
+//   box-shadow: none;
+//   border: 1px solid $yelow;
+//   height: 38px;
+//   @include size(tablet) {
+//     width: 60px;
+//     @include primary(30px);
+//     @include font($black, 1em, 800);
+//   }
+
+// }
+
+// .btn--facebook {
+//   @include font($white, 1em, 500);
+//   border-radius: 3px;
+//   background-color: #4064b2;
+//   margin-top: 25px;
+//   height: 40px;
+//   width:auto;
+//   @include size(tablet--pro) {
+//     margin-top: 0px;
+
+//   }
+//   svg {
+//     border-right: 1px solid $white;
+//     fill: $white;
+//     margin: 0 10px 0 -15px;
+//     width: 30px;
+//     height: 30px;
+
+//   }
+//   &:hover{
+//     color: $white;
+//   }
+// }
+
+
+
+.mensagem-geral {
+  background: $yelow;
+  left: 0;
+  padding: 20px 15px;
+  position: fixed;
+  top: 0;
+  width: calc(100% - 30px);
+  z-index: 99;
+
+  &::before, &::after {
+    background: $black;
+    border-radius: 3px; 
+    content: '';
+    height: 1px;
+    position: absolute;
+    top:24px;
+    right: 32PX;
+    width: 18px;
+    transform: rotate(-45deg);
+}
+  &::after {
+      right: 20PX;
+      transform: rotate(45deg);
+  }
+}
+.mensagem-geral--close {
+  top: -100%;
+  //opacity: 0;
+  //visibility: hidden;
+  transition: $animation--left;
+}
+.atencao-mensagem {
+  background: $red;
+  color: $white;
+}
+.sucesso-mensagem {
+  background: $blue;
+  color: $white;
+}
+.sucesso-mensagem, .atencao-mensagem {
+  &::before, &::after {
+    background: $white;
+  }
+}
+.detect {
+  background: $yelow;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  opacity: .9;
+  -ms-opacity: .9;
+  &__container {
+    display: none;
+    width: calc(80% - 40px);
+    padding: 20px 40px;
+  }
+  &__container--open {
+    display: block;
+  }
+  &__close {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    font-size: 30px;
+  }
+  
+}
+
+@include popup__modal();
+
+.pag__error {
+  background: linear-gradient(
+
+		5deg, 
+		#eee 50%, 
+    #e5e5e5 50%,);
+    
+    height: 100vh;
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .error {
+      @include font(rgba($gray, .5), 5em, 400);
+      text-align: center;
+      line-height: 60%;
+      background: #fff;
+      padding: 50px 30px 30px;
+      @include size(tablet) {
+        @include font(rgba($gray, .5), 10em, 400);
+      }
+      a {
+        @include font(rgba($gray, .5), 15px, 400);
+        text-decoration: underline;
+      }
+    }
+
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.singin {
+  z-index: 30;
+  position: fixed;
+  background: rgba($black, .5);
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  transition: all .9s ease;
+  .singin__container {
+    animation: 0.2s slideIn ease-in-out;
+    align-items: center;
+    background: $white; 
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+    transition: all .9s ease;
+    width: 100%;
+    z-index: 9999;
+    @include size(tablet--pro) {
+      width: 50%;
+    }
+    .singin__close {
+      @include icon__close($black, 30px);
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      height: 40px;
+      outline: none;
+      position: absolute;
+      right: 25px;
+      top: 25px;
+      width: 40px;
+      z-index: 2;
+    }
+  }
+  .singin__content {
+    width: 250px;
+    position: relative;
+    @include size(tablet) {
+      width: 300px;
+    }
+    .singin__title {    
+      height: 150px;
+      width: 100%;
+      position: relative;
+      @include size(tablet) {
+        height: 180px;
+      }
+      &::before {
+          @include font($black, 45px, 900);
+          content: 'bem vindo de volta'; 
+          font-style:  italic;
+          left: 0px;
+          line-height: 74%;
+          position: absolute;
+          text-transform: uppercase;
+          top: 0px;
+          word-spacing:9999px;
+          width: 50%;
+          z-index: 1;
+          @include size(tablet) {
+              @include font($black, 55px, 900);   
+          } 
+      }
+    }
+  }
+}

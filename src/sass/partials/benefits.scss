@@ -1,0 +1,256 @@
+.main__benefits {
+    background: $silver;
+    padding: 20px 0;
+    position: relative;
+    z-index: 2;
+    @include size(tablet) {
+        padding: 50px 0;
+        //position: relative;
+        height: 1000px;
+    }
+    .benefits__title {
+        @include font(rgba($black, .6), 1.3em, 500);
+        margin: 0 auto;
+        max-width: 1100px; 
+        line-height: 115%;
+        padding: 20px;
+        text-align: center;
+        @include size(tablet) {
+            @include font(rgba($black, .3), 1.6em, 500);
+        }
+    }
+    .benefits__partners {
+        display: flex;
+        align-items: center;
+        flex-flow: row wrap;
+        justify-content: center;
+        margin: 0 auto;
+        max-width: 1000px;
+        padding: 30px 15px;
+        @include size(tablet) {
+            padding: 30px 0;
+        }
+        .partners__item {
+            border: 0px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+            margin: 0;
+            width: calc(50% - 0px);
+            @include size(tablet) {
+                height: 130px;
+                width: calc(25% - 0px);
+            }
+            .partners__link {
+                background-image: url(/images/logos/partners.png);
+                background-size: 150px;
+                display: block;
+                @include size(tablet) {
+                    background-size: auto;
+                }
+                filter: grayscale(100%);
+                transition: all .4s ease;
+                &--bmg {
+                    height: 55px;
+                    width: 98px;
+                    @include size(tablet) {
+                        height: 85px;
+                        width: 154px;
+                    }
+                }
+                &--canon {
+                    background-position: 0 -54px;
+                    height: 25px;
+                    width: 118px;
+                    opacity: .5;
+                    @include size(tablet) {
+                        background-position: 0 -88px;
+                        height: 40px;
+                        width: 184px;
+                    }
+                }
+                &--positivo {
+                    
+                    background-position: 0 -80px;
+                    height: 42px;
+                    width: 85px;
+                    opacity: .4;
+                    @include size(tablet) {
+                        background-position: 0 -128px;
+                        height: 70px;
+                        width: 138px;
+                    }
+                }
+                &--unibrasil {
+                    
+                    background-position: 0 -122px;
+                    height: 43px;
+                    width: 100px;
+                    opacity: .4;
+                    @include size(tablet) {
+                        background-position: 0 -200px;
+                        height: 65px;
+                        width: 158px;
+                    }
+                }
+                &--muralha {
+                    
+                    background-position: 0 -165px;
+                    height: 70px;
+                    width: 78px;
+                    opacity: .4;
+                    @include size(tablet) {
+                        background-position: 0 -265px;
+                        height: 107px;
+                        width: 125px;
+                    }
+                }
+                &--shoptimao {
+                    
+                   
+                    background-position: 0 -234px;
+                    height: 40px;
+                    width: 148px;
+                    opacity: .4;
+                    @include size(tablet) {
+                        background-position: 0 -380px;
+                        height: 57px;
+                        width: 235px;
+                    }
+                }
+                &--loucosporpontos {
+                    background-position: 0 -272px;
+                    height: 47px;
+                    width: 125px;
+                    opacity: .4;
+                    @include size(tablet) {
+                        background-position: 0 -438px;
+                        height: 80px;
+                        width: 195px;
+                    }
+                }
+                &--marjosports {
+                    background-position: 0 -320px;
+                    height: 28px;
+                    width: 135px;
+                    opacity: .4;
+                    @include size(tablet) {
+                        background-position: 0 -517px;
+                        height: 45px;
+                        width: 225px;
+                    }
+                }
+                &:hover {
+                    filter: grayscale(0);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .benefits__container {
+        padding: 1.5em;
+        width: calc(100% - 3em);
+        .benefits__side {
+            //width: 100%;
+            margin-bottom: 20px;
+            .side__title {
+                @include font(rgba($black, .6), 1.5em, 700);
+                letter-spacing: .5px;
+                line-height: 1em;
+                margin-bottom: 15px;
+                text-align: center;
+                @include size(tablet) {
+                    @include font(rgba($black, .6), 2em, 600);
+                    padding-bottom: 30px;
+                }
+                @include size(desktop) {
+                    @include font(rgba($black, .5), 40px, 300);
+                    line-height: 1.2em;
+                    text-align: left;
+                }
+            }
+            @include size(desktop) {
+                width: 25%;
+            }
+        }
+        .benefits__content {
+            //width: 100%;
+            .benefits__item {
+                text-align: center;
+                margin-bottom: 50px;
+                .benefits__logo {
+                    //background: #999;
+                    //border-radius: 50%;
+                    border:  0;
+                    height: 70px;
+                    margin: 0 auto;
+                    //width: 70px;
+                }
+                .benefits__title {
+                    @include font($black, 1.3em, 700);
+                    padding: 20px 0;
+                }
+                .benefits__note {
+                    text-align:  center;
+                    line-height: 1.3em;
+                    margin: 0px auto 20px;
+                    width: 80%;
+                    @include size(desktop) {
+                        margin: 0px auto 40px;
+                     }
+                }
+            }
+            @include size(tablet) {
+                display: flex;
+                flex-direction: row;
+                .benefits__item {
+                    text-align: center;
+                    margin-bottom: 50px;
+                    
+                    .benefits__logo {
+
+                        @include size(desktop) {
+                            height: 120px;
+    
+                         }
+                    }
+                    .benefits__title {
+                        @include font($black, 1.05em, 700);
+                        line-height: 1.3em;
+                        margin:  auto;
+                        width: 100%;
+                        @include size(desktop) {
+                            @include font($black, 1.2em, 700);
+                         }
+                    }
+                }
+            }
+            @include size(desktop) {
+                width: 74%;
+             }
+        }
+        .benefits__info {
+            @include font(rgba($black, .7), 0.8em, 300);
+            display: none;
+            text-align: center;
+            width: 100%;
+            @include size(desktop) {
+                margin-top: 200px;
+                position: absolute;
+                text-align: left;
+                //top: 300px;
+                width: 250px;
+                p {
+                    padding: 5px 0;
+                }
+             }
+        }
+        @include size(desktop) {
+           display: flex;
+           flex-direction: row;
+           margin: 0 auto;
+           width: 1100px;
+        }
+    }
+}

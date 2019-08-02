@@ -1,0 +1,168 @@
+.home {
+    background: $black;
+    min-height: 100vh;
+    position: relative;
+    .home__title{
+        background-image: url('/images/background/bg-overlay.png');
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        left: 0;
+        padding: 0 20px 0 20px;
+        position: absolute;
+        top: 0;
+        width: calc(100% - 40px);
+        z-index: 3;
+        @include size(tablet) {
+            min-height: 650px;
+        }
+        h1.title__content {
+            @include font($white, 12vw, 900);
+            display: inline-block;
+            font-style:  italic;
+            height: 45%;
+            line-height: 73%;
+            margin: 35px 0 5px 0;
+            text-align: left;
+            text-transform: uppercase;
+            white-space: pre-line;
+            position: relative;
+            &::before {
+                content: '#SEJA UM FIEL TORCEDOR'; 
+                left: 0px;
+                line-height: 74%;
+                position: absolute;
+                top: 15%;
+                word-spacing:9999px;
+            }
+            @media (orientation: landscape) {
+                @include font($white, 5vw, 900);
+            }
+            @include size(mobile__apple--long) {
+                //@include font($white, 2.4em, 900);
+            }
+            @include size(mobile__apple) {
+                //@include font($white, 3.7em, 900);
+            }
+            @include size(mobile) {
+                //@include font($white, 3.6em, 900);
+            }
+            @include size(mobile--long) {
+                //@include font($white, 3.8em, 900);
+            }
+            @include size(mobile__apple--plus) {
+                //@include font($white, 4.2em, 900);
+            }
+            @include size(tablet) {
+                @include font($white, 5em, 900);
+                &::before {
+                    //content: 'SOU FIEL TORCEDOR'; 
+                    top: 24%;
+                }
+            }
+            @include size(tablet--pro) {
+                @include font($white, 8em, 900);
+            }
+            @include size(desktop) {
+                @include font($white, 7.5em, 900);
+                &::before {
+                    //content: 'SOU FIEL TORCEDOR'; 
+                    top: 30%;
+                }
+            }
+        }
+        .title__info {
+            bottom: 18%;
+            position: absolute;
+            .info__text {
+                @include font($white, 0.8em, 400);
+                display: block;
+                line-height: 1.5em;
+                margin-bottom: 20px;
+                @include size(mobile__apple--long) {
+                    @include font($white, 1em, 400);
+                }
+                @include size(mobile__apple) {
+                    @include font($white, 1em, 400);
+                }
+                @include size(mobile) {
+                    @include font($white, 1em, 400);
+                }   
+                @include size(tablet) {
+                    @include font($white, 1.3em, 400);
+                }
+            }
+            @include size(tablet) {
+                bottom: 10%;
+                left: 40px;
+            }
+            @include size(desktop) {
+                display: flex;
+                align-self: center;
+                left: 40px;
+                .info__text {
+                    margin-right: 20px; 
+                }
+                .btn {
+                    align-self: center;
+                }
+            }  
+        }
+        .home__arrow {
+            background: $white;
+            bottom: 20%;
+            height: 20px; 
+            position: absolute;
+            right: 40px;
+            width: 1px;
+            span {
+                background: $white;
+                height: 100px; 
+                position: absolute;
+                border-left: 1px solid  $white;
+                top: -110px;
+            }
+            &::before, &::after {
+                background: $white;
+                border-radius: 3px; 
+                content: '';
+                height: 1px;
+                position: absolute;
+                bottom: 5px;
+                right: -14px;
+                width: 18px;
+                transform: rotate(-45deg);
+            }
+            &::after {
+                  right: -2px;
+                  transform: rotate(45deg);
+            }
+            @include size(desktop) {
+                bottom: 10%;
+                right: 5%;
+            }
+        }
+    }
+
+    .home__media-asset {
+        display: block;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-height: 100vh;
+        z-index: 1;
+        width: 100%;
+        background-color:  $black;
+        background-image: url('/images/background/bg-movie.jpg');
+        background-size: cover;
+        opacity: .3;
+        video {
+            display: none;
+            @include size(desktop) {
+                width: 100%;
+                display: block;
+            }    
+        }
+    }
+}

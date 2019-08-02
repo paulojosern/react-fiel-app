@@ -1,0 +1,241 @@
+.changechair {
+    background: $white;
+    margin: 0;
+    padding: 0;
+    &__hidden {
+        top: -9999px;
+        left: -9999px;
+        position: absolute;
+    }
+    &__container {
+        display: flex;
+        flex-flow: column wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @include size(tablet){
+            flex-flow: row wrap;
+        }
+        .changechair__item {
+            border: 2px solid $silver;
+            flex: 2;
+            margin: 0 0 8px 0;
+            button {
+                @include font($black, .9em, 500);
+                appearance: none;
+                -webkit-appearance: none;
+                background: transparent;
+                border: 0;
+                cursor: pointer;
+                outline: 0;
+                padding: 12px 20px 5px;
+                max-width: calc(100% - 0px);
+                min-width: calc(100% - 0px);
+            }
+            @include size(tablet){
+                margin: 5px;
+                max-width: calc(33% - 60px);
+                min-width: calc(33% - 60px);
+            }
+            @include size(tablet--pro){
+                max-width: calc(25% - 60px);
+                min-width: calc(25% - 60px);
+            }
+            @include size(desktop){
+                max-width: calc(20% - 60px);
+                min-width: calc(20% - 60px);
+            }
+            &:hover {
+                box-shadow: 0px 7px 7px -5px rgba($gray, .2);
+            }
+            .item__socio {
+                height: 35px;
+            }
+            .item__note {
+                font-size: .9em;
+                text-align: center;
+
+            }
+            .item__info {
+                font-size: 1em;
+                font-weight: 600;
+                padding: 0px 0 0 0;
+            }
+            .item__chair {
+                display: flex;
+                font-size: 1em;
+                font-weight: 500;
+                padding: 5px 0;
+                .chair {
+                    width: 50%;
+                    span {
+                        display: block;
+                        font-size: 1.8em;
+                        font-weight: 700;
+                        padding: 0 0 5px 0;
+                    }
+                }
+            }
+        }
+              
+        .changechair__item--hidden {
+            background: $silver;
+            opacity: .6;
+            &:hover {
+                box-shadow: none;
+            }   
+        }  
+        .changechair__item--active {
+            opacity: 1 !important;
+            background: $white !important;
+            border: 2px solid $yelow;
+            opacity: 1;
+            button {
+                opacity: 1 !important;
+            }
+        }        
+    }
+    &__content {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: space-between;
+        font-size: 1.2em;
+        @include size(tablet){
+            flex-flow: row wrap;
+            font-size: 1em;
+        }
+        .changechair__map {
+            display: none;
+            width: 50%;
+            img {
+                width: 100%;
+            }
+            @include size(tablet){
+                display: block;
+            }
+        }
+        .changechair__form {
+            padding: 20px 0;
+            @include size(tablet){
+                width: 30%;
+            }
+            
+            .form__label {
+                display: block;
+            }
+            .form__label--socio {
+                height: 50px;
+            }
+            .form__label--selected {
+                font-weight: 700;
+            }
+        }
+    }
+    &__checking {
+        background: $white;   
+        height: auto;
+        position: relative;
+        width: 100vw;
+        @include size(tablet){
+            height: 100vh;
+        }
+        .checking__container {
+            position: relative;
+            
+            @include size(tablet){
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .changechair__msg {
+                font-weight: 600;
+                font-size: 1.2em;
+                line-height: 120%;
+                padding: 20px;
+                text-transform: uppercase;
+                text-align: center;
+            }
+            .changechair__check {
+                .check__camp {
+                    padding: 0 20px;
+                    text-align: center;
+                }
+                .check__ing {
+                    display: flex;
+                    flex-flow: column wrap;
+                    margin: 0 auto;
+                    padding: 0 20px;
+                    position: relative;
+                    width: calc(100% - 40px);
+                    
+                    @include size(tablet){
+                        flex-flow: row wrap;
+                        width: 70%;
+                    }
+                    .ing__arrow {
+                        @include size(tablet){
+                            height: 50px;
+                            left: 43%;
+                            position: absolute;
+                            top: 50%;
+                            transform:  translateY(-50%);
+                            width: 25px;
+                            &::before, &::after {
+                                background: $silver;
+                                border-radius: 5px;
+                                content: '';
+                                height: 5px;
+                                position: absolute;
+                                top: 0;
+                                transform: rotate(60deg);
+                                width: 35px;
+                            }
+                            &::after {
+                                top: 29px;
+                                transform: rotate(-60deg);
+                            }
+                        }
+                    }
+                    .ing__item {
+                        flex: 1;
+                        line-height: 120%;
+                        margin: 10px 0px;
+                        padding: 10px 2px;
+                        text-align: center;
+                        width: calc(100% - 4px);
+                        @include size(tablet){
+                            margin: 20px 10px;
+                            width: calc(50% - 20px);
+                        }
+                        .ing__title {
+                            margin-bottom: 15px;
+                            padding: 10px;
+                        }
+                    }
+                    .ing__item--after {
+                        border: 1px solid $yelow;
+                        border-radius: 5px;
+                        font-weight: 500;
+                        font-size: 1.2em;
+                    }
+                }
+            }
+            .changechair__footer {
+                margin: 10px 30px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.btn {
+    appearance: none;
+    background: $yelow;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    color: $black;
+    font-weight: 700;
+    padding: 8px 20px;
+    width: calc(100% -40px);
+}

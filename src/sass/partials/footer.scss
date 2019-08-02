@@ -1,0 +1,145 @@
+.main__footer {
+    @include font($white, .9em, 300);
+    background: $black;
+    letter-spacing: .3px;
+    position: relative;
+    .footer__top {
+        appearance: none;
+        background: transparent;
+        cursor: pointer;
+        bottom: 30px;
+        height: 30px;
+        position: absolute;
+        right: 30px;
+        width: 30px;
+        z-index: 10;
+        &::before, &::after {
+            background: $white;
+            border-radius: 3px; 
+            content: '';
+            height: 2px;
+            position: absolute;
+            right: 0;
+            top:13px;
+            width: 28px;
+            transform: rotate(45deg);
+        }
+        &::after {
+            right: 19px;
+            transform: rotate(-45deg);
+        }
+    }
+    .footer__container {
+        .footer__content {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            padding: 1.5em;
+            width: calc(100% - 3em);
+            .footer__item {
+                line-height:  1.8em;
+                h3 {
+                    font-size: 1em;
+                    margin-top: 20px
+                }
+                .footer__link {
+                    @include font($white, 1em, 300);
+                    text-decoration: none;
+                    display: block;
+                    padding: 10px 0;
+                }
+            }
+            .footer__item--about,
+            .footer__item--categories {
+                width: 50%;
+            }
+            .footer__item--medias {
+                padding: 50px 0;
+                width: 100%;
+                .footer__social-media {
+                    align-items: center;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    
+                    .media__item {
+                        height: 30px;
+                        //width: 20px;
+                    }
+                }
+                .footer__copyright {
+                    padding-top: 60px;
+                    .footer__logo {
+                        display: inline-block;
+                        height: 60px;
+                        margin-right: 20px;
+                    }
+                    p ,.copyright__link {
+                        @include font($white, .9em, 300);
+                    }
+                    svg.logo__ibm {
+                        fill: $white;
+                        height: 30px;
+                        width: 70px;
+                    }
+                    .footer__ibm {
+                        display: inline-flex;
+                        flex-direction: column;
+                        padding-top: 8px;
+                        vertical-align: top;
+                        span {
+                            color: $white;
+                            font-size: .8em;
+                        }
+                    }
+                }
+            }
+            @include size(tablet) {
+                padding: 1.5em 3em;
+                width: calc(100% - 6em);
+                .footer__item--about,
+                .footer__item--categories {
+                    width: 23%;
+                }
+                .footer__item--contacts {
+                    width: 100%;
+                    display: flex;
+                    .item__contact {
+                        width: 20%;
+                        padding-right: 20px;
+                    }
+                }
+                .footer__item--medias {
+                    display: flex;
+                    flex-direction: row;
+                    margin: 0 auto;
+                    padding: 50px 0;
+                    text-align: center;
+                    
+                    .footer__social-media {
+                        padding:  0 2em;
+                        width: calc(40% - 4em);
+                    }
+                    .footer__copyright {
+                        margin: 0 auto;
+                        text-align: center;
+                        padding-top: 60px;
+                        .footer__logo {
+                            display: inline-block;
+                            height: 80px;
+                            margin-right: 20px;
+                        }
+                        
+                    } 
+                }              
+            }
+        }
+        @include size(tablet--pro) {
+            padding: 3em 4em;
+        }
+        @include size(desktop) {
+            margin: 0 auto;
+            width: calc(1200px - 6em);
+        }
+    }
+}
